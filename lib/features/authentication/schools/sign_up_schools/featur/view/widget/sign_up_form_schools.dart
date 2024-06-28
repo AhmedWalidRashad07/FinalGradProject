@@ -16,30 +16,32 @@ class SignUpFormSchools extends StatelessWidget {
           text: "Sign up",
         ),
         Text("Enter School Informations"),
-           ShadowTextForm(
-        text: "School Name",
-        text1: " *",
-                ),
-           ShadowTextForm(
-        text: "Email",
-        text1: " *",
-                ),
-           ShadowTextForm(
-        text: "Location",
-        text1: " *",
-                ),
-           ShadowTextForm(
-        text: "Enter contact information for the school",
-        text1: " ",prefixText: "+02",
-                ),
-           ShadowTextForm(
-        text: "If there are program options , enter the necessary details",
-        text1: " ",
-                ),
-           ShadowTextForm(
-        text: "Teacher and Staff Information:",
-        text1: " ",maxLines: 3,
-                ),
+        ShadowTextForm(
+          text: "School Name",
+          text1: " *",
+        ),
+        ShadowTextForm(
+          text: "Email",
+          text1: " *",
+        ),
+        ShadowTextForm(
+          text: "Location",
+          text1: " *",
+        ),
+        ShadowTextForm(
+          text: "Enter contact information for the school",
+          text1: " ",
+          prefixText: "+02",
+        ),
+        ShadowTextForm(
+          text: "If there are program options , enter the necessary details",
+          text1: " ",
+        ),
+        ShadowTextForm(
+          text: "Teacher and Staff Information:",
+          text1: " ",
+          maxLines: 3,
+        ),
       ],
     );
   }

@@ -120,6 +120,7 @@ class School2DetailsBody extends StatelessWidget {
             const SubmitedButton(text: 'Fill out the form'),
             const SizedBox(
               height: 20,
+              
             ),
           ],
         ),

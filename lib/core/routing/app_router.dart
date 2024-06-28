@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_school_admission/features/authentication/schools/sign_in_school/featur/view/sign_in_school_view.dart';
 import 'package:online_school_admission/features/authentication/user/rest_password_form_user/feature/view/reset_password_form_user_view.dart';
 import 'package:online_school_admission/features/page5_intro/featur/view/home_view.dart';
+import 'package:online_school_admission/quiz/quiz_screen.dart';
 import '../../features/Frame1000003451_book_a_bus/featur/view/Frame1000003451_book_a_bus_view.dart';
 import '../../features/authentication/schools/confirm_password_schools/featur/view/confirm_password_schools.dart';
 import '../../features/authentication/schools/sign_up_schools/featur/view/sign_up_schools_view.dart';
@@ -149,6 +150,11 @@ class AppRouter {
       case Routers.page47PaymentMethod:
         return MaterialPageRoute(
           builder: (_) => const Page47PaymentMethodView(),
+        );
+
+      case Routers.QuizScreen:
+        return MaterialPageRoute(
+          builder: (_) => QuizScreen(),
         );
 
       default:

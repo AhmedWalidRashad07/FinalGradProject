@@ -11,13 +11,12 @@ class Page46Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  CustomElevatedButton(
-        text: "Confirm",
-        style: ConstTextStyle.k16Regular,
-        backgroundColor: ConstColor.kCobaltBlue,
-        minimumSize: Size(156.w, 50.h),
-        onPressed: () =>
-           context.pushNamed(Routers.page21PaymentSuccessful),
-      );
+    return CustomElevatedButton(
+      text: "Confirm",
+      style: ConstTextStyle.k16Regular,
+      backgroundColor: ConstColor.kCobaltBlue,
+      minimumSize: Size(156.w, 50.h),
+      onPressed: () => context.pushNamed(Routers.page21PaymentSuccessful),
+    );
   }
 }

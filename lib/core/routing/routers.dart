@@ -29,5 +29,7 @@ class Routers {
   static const String page21PaymentSuccessful = '/Page21PaymentSuccessfulView';
   static const String page22BookingInterview = '/Page22BookingInterviewView';
   static const String page24YourProfile = '/Page24YourProfileView';
-  static const String page47PaymentMethod= '/Page47PaymentMethodView';
+  static const String page47PaymentMethod = '/Page47PaymentMethodView';
+  static const String signIN = '/signIN';
+  static const String QuizScreen = '/QuizScreen';
 }

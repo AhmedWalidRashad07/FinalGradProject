@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_school_admission/core/routing/extensions.dart';
+import 'package:online_school_admission/core/routing/routers.dart';
 import 'package:online_school_admission/core/utils/app_theme_manager.dart';
 import 'package:online_school_admission/core/utils/constants.dart';
 
@@ -25,7 +27,9 @@ class SubmitedButton extends StatelessWidget {
             //   22,
             // ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            context.pushNamed(Routers.QuizScreen);
+          },
           child: Text(
             text,
             style: AppThemeManager.textStyle20.copyWith(

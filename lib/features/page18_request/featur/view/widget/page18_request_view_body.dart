@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_school_admission/features/page26_payment_method/featur/view/page26_payment_method_view.dart';
 
 import '../../../../../core/widgets/custom_back_icon_button.dart';
 import 'button_page18.dart';
@@ -39,8 +40,20 @@ class Page18RequestViewBody extends StatelessWidget {
             ],
           ),
         ),
-   const     SizedBox(height: 16,)
+   const     SizedBox(height: 16,),
+
+           ElevatedButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return Page26PaymentMethodView();
+                },
+              ));
+            },
+            child: Text("Next"),
+          ),
       ],
+
     );
   }
 }

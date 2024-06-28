@@ -11,7 +11,8 @@ class SignUpSchooksViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomBackIconButton(),
           CircleLogo(),
@@ -20,7 +21,7 @@ class SignUpSchooksViewBody extends StatelessWidget {
           ),
           SignUpFormSchools(),
           SignupDropLevelSchools(),
-           SizedBox(
+          SizedBox(
             height: 173,
           ),
           SignUpButtonSchools(),

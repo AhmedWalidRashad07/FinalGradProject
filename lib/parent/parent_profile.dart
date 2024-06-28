@@ -1,13 +1,13 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:online_school_admission/Payment.dart';
-import 'package:online_school_admission/parent/home_page_parent.dart';
 import 'package:online_school_admission/parent/your_profile.dart';
+import '../Payment.dart';
+import 'edit_payment.dart';
+import 'home_page_parent.dart';
 
-
-class ProfileView extends StatelessWidget {
-  const ProfileView({Key? key}) : super(key: key);
+class Parent_Profile extends StatelessWidget {
+  const Parent_Profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

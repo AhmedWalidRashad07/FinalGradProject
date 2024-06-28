@@ -1,13 +1,11 @@
-import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:online_school_admission/Payment.dart';
-import 'package:online_school_admission/parent/home_page_parent.dart';
-import 'package:online_school_admission/parent/your_profile.dart';
+import 'package:flutter/services.dart';
+import 'package:online_school_admission/school/home_page_sch.dart';
+import 'package:online_school_admission/school/photo_video.dart';
 
-
-class ProfileView extends StatelessWidget {
-  const ProfileView({Key? key}) : super(key: key);
+class Sch_Profile extends StatelessWidget {
+  const Sch_Profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class ProfileView extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const Home_Page_Parent(), // Navigate back to SignIn widget
+                builder: (context) => const Home_Page(), // Navigate back to SignIn widget
               ),
             );
           },
@@ -68,11 +66,10 @@ class ProfileView extends StatelessWidget {
                         shape: BoxShape.circle,
                         image: const DecorationImage(
                           fit: BoxFit.cover,
-                          image: NetworkImage("https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"),
+                          image: NetworkImage("https://img.freepik.com/premium-vector/education-school-logo-design_586739-1335.jpg?w=740"),
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -87,116 +84,37 @@ class ProfileView extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20), // Add space between profile image and titles with icons
+              const SizedBox(height: 50), // Add space between profile image and titles with icons
               GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                      builder: (context) => const Your_profile(), // Navigate back to SignIn widget
-                  ),// Navigate to Your Profile screen
-                  );// Navigator.push(context, MaterialPageRoute(builder: (context) => YourProfileScreen()));
-                },
+                onTap: () {},
                 child: const ListTile(
                   leading: Icon(Icons.person, color: Colors.black),
                   title: Text(
-                    "Your Profile",
+                    "Application Submitted",
                     style: TextStyle(
-                      color: Colors.black, // Replace with the appropriate color
-                      fontSize: 20, // Replace with the desired font size
+                      color: Colors.black,
+                      fontSize: 20,
                     ),
                   ),
                   trailing: Icon(Icons.arrow_forward_ios),
                 ),
               ),
 
-
               const Divider(color: Colors.black87),
-
 
               GestureDetector(
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>  const PaymentScreen(), // Navigate back to SignIn widget
+                      builder: (context) => const Photo(),
                     ),
-                  );
-                  // Navigate to Payment Method screen
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentMethodScreen()));
-                },
-                child: const ListTile(
-                  leading: Icon(Icons.payment, color: Colors.black),
-                  title: Text(
-                    "Payment Method",
-                    style: TextStyle(
-                      color: Colors.black, // Replace with the appropriate color
-                      fontSize: 20, // Replace with the desired font size
-                    ),
-                  ),
-                  trailing: Icon(Icons.arrow_forward_ios),
-                ),
-              ),
-
-              //settings
-              const Divider(color: Colors.black87),
-
-              GestureDetector(
-                onTap: () {
-                  showModalBottomSheet(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return SizedBox(
-                        height: 300,
-                        child: Column(
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 20),
-                              child: Text(
-                                "Payment Method",
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Column(
-
-                            ),
-                            const Spacer(),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                OutlinedButton(
-                                  onPressed: () {
-                                    // Add delete account logic here
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text('Cancel'),
-                                ),
-                                MaterialButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text('Yes'),
-                                  color: Colors.blue,
-                                  textColor: Colors.black,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      );
-                    },
                   );
                 },
                 child: const ListTile(
-                  leading: Icon(Icons.help_center_outlined, color: Colors.black),
+                  leading: Icon(Icons.photo, color: Colors.black),
                   title: Text(
-                    "Help Center",
+                    "Add Photo",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
@@ -207,7 +125,23 @@ class ProfileView extends StatelessWidget {
               ),
               const Divider(color: Colors.black87),
 
-              //delet account
+              GestureDetector(
+                onTap: () {},
+                child: const ListTile(
+                  leading: Icon(Icons.payment, color: Colors.black),
+                  title: Text(
+                    "Payment Method",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                  trailing: Icon(Icons.arrow_forward_ios),
+                ),
+              ),
+
+              const Divider(color: Colors.black87),
+
               GestureDetector(
                 onTap: () {
                   _showConfirmationDialog(context, "Delete Account", "Are you sure you want to delete your account?");
@@ -248,32 +182,32 @@ class ProfileView extends StatelessWidget {
       ),
     );
   }
-}
-void _showConfirmationDialog(BuildContext context, String title, String message) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text(title),
-        content: Text(message),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              // Perform action when user confirms
-            },
-            child: Text('Yes'),
-          ),
-        ],
-      );
-    },
-  );
-}
 
 
+  void _showConfirmationDialog(BuildContext context, String title, String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                // Perform action when user confirms
+              },
+              child: Text('Yes'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
